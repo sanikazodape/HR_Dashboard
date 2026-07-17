@@ -1,0 +1,22 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Human Resources","Measures_HR","Metric"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'Human Resources'
+ref table DateTableTemplate_bb509f1a-2682-451c-b672-cabecfe13fb7
+ref table LocalDateTable_080825f3-ce16-4010-ad01-237923e0d821
+ref table Measures_HR
+ref table Metric
+
+ref cultureInfo en-US
+

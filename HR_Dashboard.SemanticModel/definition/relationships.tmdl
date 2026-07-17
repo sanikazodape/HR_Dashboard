@@ -1,0 +1,5 @@
+relationship b44fd10b-3b2b-441e-ad75-d9af221c306b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Human Resources'.'Hire Date'
+	toColumn: LocalDateTable_080825f3-ce16-4010-ad01-237923e0d821.Date
+

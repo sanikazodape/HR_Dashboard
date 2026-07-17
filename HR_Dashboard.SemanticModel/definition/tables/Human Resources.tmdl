@@ -1,0 +1,206 @@
+table 'Human Resources'
+	lineageTag: 7999abf4-4a27-492b-9d96-3102e667e261
+
+	column Departmets
+		dataType: string
+		lineageTag: 1b2b85dc-a6aa-43f5-9f92-e4801ca7b99d
+		summarizeBy: none
+		sourceColumn: Departmets
+
+		annotation SummarizationSetBy = Automatic
+
+	column Groups
+		dataType: string
+		lineageTag: 02150eae-9de6-4c40-be03-237084438033
+		summarizeBy: none
+		sourceColumn: Groups
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Type'
+		dataType: string
+		lineageTag: b5249251-bca9-4bcd-8ad3-888493328d84
+		summarizeBy: none
+		sourceColumn: Job Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Marital Status'
+		dataType: string
+		lineageTag: a04429ef-d313-4ba6-af30-c971f7a11331
+		summarizeBy: none
+		sourceColumn: Marital Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: e72ab28c-7da6-4a5c-9cce-e768470772e6
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Unit'
+		dataType: string
+		lineageTag: ce1a1522-f75b-4cae-b5b0-da4ce8fb656b
+		summarizeBy: none
+		sourceColumn: Business Unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hire Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 22324fcf-64a9-45c7-81e2-31122ea9fd2e
+		summarizeBy: none
+		sourceColumn: Hire Date
+
+		variation Variation
+			isDefault
+			relationship: b44fd10b-3b2b-441e-ad75-d9af221c306b
+			defaultHierarchy: LocalDateTable_080825f3-ce16-4010-ad01-237923e0d821.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Emp.Type'
+		dataType: string
+		lineageTag: 5c5270fb-6de9-4ec0-b2fd-20ecee01da9d
+		summarizeBy: none
+		sourceColumn: Emp.Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sick Days'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0244feb3-30e0-4962-8da9-58559360272c
+		summarizeBy: sum
+		sourceColumn: Sick Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Balance Days'
+		dataType: int64
+		formatString: 0
+		lineageTag: ab1014f5-3433-4f6d-b771-6dc9df702a2d
+		summarizeBy: sum
+		sourceColumn: Balance Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Years in current role'
+		dataType: string
+		lineageTag: c3494b9f-6057-471d-88ad-4a9040e75c11
+		summarizeBy: none
+		sourceColumn: Years in current role
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Years since last promition'
+		dataType: string
+		lineageTag: 39c92bf2-9289-4ee6-88c6-cfb027636c77
+		summarizeBy: none
+		sourceColumn: Years since last promition
+
+		annotation SummarizationSetBy = Automatic
+
+	column Education
+		dataType: string
+		lineageTag: dadf0594-56bb-4ba0-aa9e-eddd54600f37
+		summarizeBy: none
+		sourceColumn: Education
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Involvement'
+		dataType: string
+		lineageTag: dfeadaef-2b97-4ef2-9062-68208b4a0eaa
+		summarizeBy: none
+		sourceColumn: Job Involvement
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Satisfaction'
+		dataType: string
+		lineageTag: 21194f0b-64cf-41a2-95ea-88e651ac871e
+		summarizeBy: none
+		sourceColumn: Job Satisfaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Performance Rating'
+		dataType: string
+		lineageTag: 31c19099-9b6e-4bae-8be7-3925d832b921
+		summarizeBy: none
+		sourceColumn: Performance Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Relationship Satisfaction'
+		dataType: string
+		lineageTag: 17a3f5ac-c525-457a-8d4e-eeed26d37680
+		summarizeBy: none
+		sourceColumn: Relationship Satisfaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WorkLife Balance'
+		dataType: string
+		lineageTag: 98148004-f56d-4027-91e2-13b1b6985dc3
+		summarizeBy: none
+		sourceColumn: WorkLife Balance
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Last Name'
+		dataType: string
+		lineageTag: e1ff483e-3b6b-4dea-842a-793505ea8588
+		summarizeBy: none
+		sourceColumn: Last Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 4c04a7f4-d9b6-4e21-b0e4-8e146a69ed3e
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Salary
+		dataType: int64
+		formatString: 0
+		lineageTag: d57ab5c5-62a4-4af7-9680-ed44d739abc6
+		summarizeBy: sum
+		sourceColumn: Salary
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Job Classification'
+		dataType: string
+		lineageTag: f4dd5f82-23c4-489d-bd96-84e9c083fb23
+		summarizeBy: none
+		sourceColumn: Job Classification
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Human Resources' = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(File.Contents("C:\Users\samik\Documents\Power BI\Project_2_HR\Human Resources.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "Human Resources", Kind = "Sheet"]}[Data],
+				  #"Promoted headers" = Table.PromoteHeaders(#"Navigation 1", [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Departmets", type text}, {"Groups", type text}, {"Job Type", type text}, {"Marital Status", type text}, {"Age", Int64.Type}, {"Business Unit", type text}, {"Hire Date", type date}, {"Emp.Type", type text}, {"Sick Days", Int64.Type}, {"Balance Days", Int64.Type}, {"Years in current role", type text}, {"Years since last promition", type text}, {"Education", type text}, {"Job Involvement", type text}, {"Job Satisfaction", type text}, {"Performance Rating", type text}, {"Relationship Satisfaction", type text}, {"WorkLife Balance", type text}, {"Last Name", type text}, {"Gender", type text}, {"Salary", Int64.Type}, {"Job Classification", type text}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

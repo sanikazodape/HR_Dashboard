@@ -1,0 +1,75 @@
+table Measures_HR
+	lineageTag: 1741032d-9281-415d-8268-ca05fc8aaace
+
+	measure 'Total Salary Cost' = SUM('Human Resources'[Salary])
+		formatString: 0
+		lineageTag: df64a667-b1ce-4615-8b3b-e5db1b738448
+
+	measure 'Total Employees' = COUNTROWS('Human Resources')
+		formatString: 0
+		lineageTag: 01ce01b4-df79-493d-8a89-be2c0097f4eb
+
+	measure 'Total Active Employees' = CALCULATE([Total Employees],'Human Resources'[Emp.Type] = "Active")
+		formatString: 0
+		lineageTag: 0e1a6e8f-48f4-4216-bc48-b6c903dba883
+
+	measure 'Total Sick Days' = SUM('Human Resources'[Sick Days])
+		formatString: 0
+		lineageTag: 9e3a4e74-c43d-4b20-87ad-b4afc1d38def
+
+	measure 'Total Balance Days' = SUM('Human Resources'[Balance Days])
+		formatString: 0
+		lineageTag: 9dd8942a-0748-424e-b95f-2f3840fac5d2
+
+	measure 'Average Salary' = AVERAGE('Human Resources'[Salary])
+		lineageTag: e1ff6492-e225-41b0-bb47-313ea8b0865a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Sick Days' = AVERAGE('Human Resources'[Sick Days])
+		lineageTag: df2c0478-7550-4a7e-ae38-2b2c06d2be32
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Balance Days' = AVERAGE('Human Resources'[Balance Days])
+		lineageTag: 58d52bfa-de89-446f-932a-51afed6cc9c7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Selection = SELECTEDVALUE(Metric[Measure], "Employee")
+		lineageTag: 8b084943-dedf-4024-926b-aa2a2792092c
+
+	measure Date = CALENDAR(MIN('Human Resources'[Hire Date]), MAX('Human Resources'[Hire Date].[Date]))
+		formatString: General Date
+		lineageTag: b76be406-8125-4f53-953b-35508b340b8d
+
+	measure Logic = ```
+			SWITCH(TRUE(), 
+			[Selection] = "Employee", [Total Employees], 
+			[Selection] = "Salary", [Total Salary Cost], 
+			[Total Employees]
+			)
+			```
+		formatString: 0
+		lineageTag: f26fdf7c-bfdc-4b5a-a580-a1200a1e2e15
+
+	column Column1
+		dataType: string
+		lineageTag: b1cc8ec0-94a8-4893-9dfa-dd0eda3d60fb
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Measures_HR = m
+		mode: import
+		source =
+				let
+				  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t])
+				in
+				  Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
