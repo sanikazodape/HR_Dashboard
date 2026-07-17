@@ -13,7 +13,8 @@ A modern Power BI dashboard designed to analyze workforce demographics, track em
 * **Languages**: DAX (Data Analysis Expressions) for custom metrics
 
 ## 📸 Dashboard Preview
-> *Tip: Take a screenshot of your Power BI dashboard on your computer, and you can drag and drop the image file right here into this text box to display your visual work!*
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fd67d5fa-afd3-4769-b435-e2970aaac527" />
+
 
 ## 📥 How to Open This Project
 1. Download this repository as a **ZIP file** (Click the green **Code** button at the top right and select **Download ZIP**).
